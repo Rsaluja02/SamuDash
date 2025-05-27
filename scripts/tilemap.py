@@ -78,22 +78,13 @@ class Tilemap:
             tile = self.tilemap[loc]
             surf.blit(self.game.assets[tile['type']][tile['variant']], (tile['pos'][0] * self.tile_size - offset[0], tile['pos'][1] * self.tile_size - offset[1]))
         
-        # DEBUG: Draw red rectangles around physics (collidable) tiles
-        player_pos = (self.game.player.pos[0], self.game.player.pos[1])
-        for rect in self.physics_rects_around(player_pos):
-            pygame.draw.rect(
-        surf, 
-        (255, 0, 0),  # Red outline
-        pygame.Rect(rect.x - offset[0], rect.y - offset[1], rect.width, rect.height),
-        1  # Outline only
-    )
+    #     # # DEBUG: Draw red rectangles around physics (collidable) tiles
+    #     # player_pos = (self.game.player.pos[0], self.game.player.pos[1])
+    #     # for rect in self.physics_rects_around(player_pos):
+    #     #     pygame.draw.rect(
+    #     # surf, 
+    #     # (255, 0, 0),  # Red outline
+    #     # pygame.Rect(rect.x - offset[0], rect.y - offset[1], rect.width, rect.height),
+    #     # 1  # Outline only
+    # )
 
-        # for x in range(offset[0] // self.tile_size, (offset[0] + surf.get_width()) // self.tile_size + 1):
-        #     for y in range(offset[1] // self.tile_size, (offset[1] + surf.get_height()) // self.tile_size + 1):
-        #         loc = str(x) + ";" +  str(y)
-        #         if loc in self.tilemap:
-        #             tile = self.tilemap[loc]
-        #             surf.blit(self.game.assets[tile['type']][tile['variant']], (tile['pos'][0] * self.tile_size - offset[0], tile['pos'][1] * self.tile_size - offset[1]))
-        
-            
-        
